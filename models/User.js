@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const userSchema = new Schema(
   {
     username: {
@@ -27,13 +27,14 @@ const userSchema = new Schema(
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'user',
+        ref: 'User',
       },
     ],
   },
   {
     toJSON: {
       virtuals: true,
+      getters: true,
     },
     id: false,
   },
@@ -43,6 +44,6 @@ userSchema.virtual('friendCount').get(function () {
   return this.friends.length;
 });
 
-const User = model('user', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;
