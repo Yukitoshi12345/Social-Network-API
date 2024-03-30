@@ -1,4 +1,4 @@
-const { User, Thought } = require('../models');
+const { Thought, User } = require('../models');
 
 module.exports = {
   async getUsers(req, res) {
@@ -61,10 +61,35 @@ module.exports = {
         return res.status(404).json({ message: 'No user found with that id!' });
       }
 
-      await User.deleteMany({ _id: { $in: user.thoughts } });
+      await Thought.deleteMany({ _id: { $in: user.thoughts } });
       res.json({ message: 'User and thoughts deleted!' });
     } catch (err) {
       res.status(500).json(err);
+    }
+  },
+
+  async addFriend(req, res) {
+    try {
+      const user = await User.findByIdAndUpdate(
+        { _id: req.params.userId },
+        { $addToSet: { friends: req.params.friendId } },
+        { new: true, runValidators: true },
+      );
+      if (!user) {
+        return res.status(404).json({ message: 'No user found with that id!' });
+      }
+      //adding the user as a friend to the friend
+      const friend = await User.findByIdAndUpdate(
+        { _id: req.params.friendId },
+        { $addToSet: { friends: req.params.userId } },
+        { new: true, runValidators: true },
+      );
+      if (!friend) {
+        return res.status(404).json({ message: 'No user found with that id!' });
+      }
+      res.json({ message: 'Successfully added new friends!' });
+    } catch (err) {
+      res.status(500).json(err.message);
     }
   },
 };
