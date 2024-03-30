@@ -10,7 +10,7 @@ module.exports = {
     }
   },
 
-  async getThoughtsId(req, res) {
+  async getSingleThought(req, res) {
     try {
       const thought = await Thought.findOne({ _id: req.params.thoughtId });
 
@@ -18,6 +18,25 @@ module.exports = {
         return res
           .status(404)
           .json({ message: 'No thought found with that ID!' });
+      }
+
+      res.json(thought);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+
+  async createThought(req, res) {
+    try {
+      const thought = await Thought.create(req.body);
+      const user = await User.findByIdAndUpdate(
+        { _id: req.params.userId },
+        { $push: { thoughts: thought._id } },
+        { runValidators: true, new: true },
+      );
+
+      if (!user) {
+        return res.status(404).json({ message: 'Associated user not found!' });
       }
 
       res.json(thought);
