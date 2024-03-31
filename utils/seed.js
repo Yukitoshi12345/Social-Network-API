@@ -1,6 +1,7 @@
 const connection = require('../config/connection');
-const { User, Thought } = require('../models'); // Adjust the path as necessary
-const { users, thoughts } = require('./data');
+const { Thought, User } = require('../models'); // Adjust the path as necessary
+const { thoughts } = require('./thoughtData');
+const { users } = require('./userData');
 
 // Creates a connection to MongoDB
 connection.once('open', async () => {
