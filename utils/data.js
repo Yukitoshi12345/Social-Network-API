@@ -1,4 +1,4 @@
-const user = [
+const users = [
   {
     username: 'acsjckd1231233',
     email: 'a@gmail.com',
@@ -13,7 +13,7 @@ const user = [
   },
 ];
 
-const thought = [
+const thoughts = [
   {
     thoughtText: 'Yesterday is the new today',
     username: 'acsjckd1231233',
@@ -28,4 +28,4 @@ const thought = [
   },
 ];
 
-module.exports = { user, thought };
+module.exports = { users, thoughts };
