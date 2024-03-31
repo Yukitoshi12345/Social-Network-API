@@ -1,7 +1,7 @@
 {
   "name": "social-network-api",
   "version": "1.0.0",
-  "description": "<h1 align = \"center\"> Social Network API </h1>",
+  "description": "Social Network API",
   "main": "index.js",
   "scripts": {
     "start": "node index",

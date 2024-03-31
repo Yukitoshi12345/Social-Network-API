@@ -18,9 +18,7 @@ const app = express();
 
 // Determine the specific activity or part of the project the server is running for, based on the CWD.
 // This is useful for debugging or when running multiple servers for different parts of a larger project.
-const activity = cwd.includes('Social-Network-API')
-  ? cwd.split('Social-Network-API')[1]
-  : cwd;
+const activity = cwd.includes('bootcamp') ? cwd.split('bootcamp')[1] : cwd;
 
 // Middleware to parse URL-encoded data with the querystring library
 app.use(express.urlencoded({ extended: true }));

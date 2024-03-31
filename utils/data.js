@@ -1,31 +1,31 @@
-const users = [
+const user = [
   {
-    username: 'a',
+    username: 'acsjckd1231233',
     email: 'a@gmail.com',
   },
   {
-    username: 'b',
+    username: 'brsfjjmf123123',
     email: 'b@gmail.com',
   },
   {
-    username: 'c',
+    username: 'cawdjdmadxm23',
     email: 'c@gmail.com',
   },
 ];
 
-const thoughts = [
+const thought = [
   {
     thoughtText: 'Yesterday is the new today',
-    username: 'a',
+    username: 'acsjckd1231233',
   },
   {
     thoughtText: 'Tomorrow is the future of today',
-    username: 'b',
+    username: 'brsfjjmf123123',
   },
   {
     thoughtText: 'Sleep is for the weak',
-    username: 'c',
+    username: 'cawdjdmadxm23',
   },
 ];
 
-module.exports = { users, thoughts };
+module.exports = { user, thought };

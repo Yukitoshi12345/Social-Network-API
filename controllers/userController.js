@@ -1,7 +1,9 @@
+// Import the Thought and User models from the models directory
 const { Thought, User } = require('../models');
 
+// Exporting an object containing several asynchronous functions as methods
 module.exports = {
-  // Get all users
+  // Retrieves all users from the database and sends them back in the response
   async getUsers(req, res) {
     try {
       const users = await User.find();
@@ -11,7 +13,7 @@ module.exports = {
     }
   },
 
-  // Get a single user by its _id and populate thought and friend data
+  // Retrieves a single user by their ID, populating their thoughts and friends in the response
   async getSingleUser(req, res) {
     try {
       const user = await User.findOne({ _id: req.params.userId })
@@ -28,7 +30,7 @@ module.exports = {
     }
   },
 
-  // Post a new user
+  // Creates a new user with the request body data and sends the created user back in the response
   async createUser(req, res) {
     try {
       const user = await User.create(req.body);
@@ -38,7 +40,8 @@ module.exports = {
     }
   },
 
-  // Update a user by its _id
+  // Updates a user by their ID with the request body data
+  // Sends the updated user data back in the response
   async updateUser(req, res) {
     try {
       const user = await User.findOneAndUpdate(
@@ -57,7 +60,7 @@ module.exports = {
     }
   },
 
-  // Delete a user by its _id and remove user's associated thoughts
+  // Deletes a user by their ID and also deletes all thoughts associated with that user
   async deleteUser(req, res) {
     try {
       const user = await User.findOneAndDelete({ _id: req.params.userId });
@@ -73,10 +76,9 @@ module.exports = {
     }
   },
 
-  // Add a new friend to a user's friend list
+  // Adds a new friend to a user's friend list and ensures the friendship is mutual
   async addFriend(req, res) {
     try {
-      // Adding the friend to the user's friend list
       const user = await User.findByIdAndUpdate(
         { _id: req.params.userId },
         { $addToSet: { friends: req.params.friendId } },
@@ -85,7 +87,7 @@ module.exports = {
       if (!user) {
         return res.status(404).json({ message: 'No user found with that id!' });
       }
-      // Adding the user as a friend to the friend's list
+
       const friend = await User.findByIdAndUpdate(
         { _id: req.params.friendId },
         { $addToSet: { friends: req.params.userId } },
@@ -94,16 +96,16 @@ module.exports = {
       if (!friend) {
         return res.status(404).json({ message: 'No user found with that id!' });
       }
+
       res.json({ message: 'Successfully added new friends!' });
     } catch (err) {
       res.status(500).json(err.message);
     }
   },
 
-  // Remove a friend from a user's friend list
+  // Removes a friend from a user's friend list and ensures this removal is reflected on both sides
   async deleteFriend(req, res) {
     try {
-      // Removing the friend from the user's friend list
       const user = await User.findByIdAndUpdate(
         { _id: req.params.userId },
         { $pull: { friends: req.params.friendId } },
@@ -114,7 +116,6 @@ module.exports = {
         return res.status(404).json({ message: 'No user found with that ID' });
       }
 
-      // Optionally, removing the userId from the friend's friends list as well
       await User.findByIdAndUpdate(
         { _id: req.params.friendId },
         { $pull: { friends: req.params.userId } },
