@@ -1,6 +1,7 @@
 const { Thought, User } = require('../models');
 
 module.exports = {
+  // Get all users
   async getUsers(req, res) {
     try {
       const users = await User.find();
@@ -10,6 +11,7 @@ module.exports = {
     }
   },
 
+  // Get a single user by its _id and populate thought and friend data
   async getSingleUser(req, res) {
     try {
       const user = await User.findOne({ _id: req.params.userId })
@@ -26,6 +28,7 @@ module.exports = {
     }
   },
 
+  // Post a new user
   async createUser(req, res) {
     try {
       const user = await User.create(req.body);
@@ -35,6 +38,7 @@ module.exports = {
     }
   },
 
+  // Update a user by its _id
   async updateUser(req, res) {
     try {
       const user = await User.findOneAndUpdate(
@@ -53,6 +57,7 @@ module.exports = {
     }
   },
 
+  // Delete a user by its _id and remove user's associated thoughts
   async deleteUser(req, res) {
     try {
       const user = await User.findOneAndDelete({ _id: req.params.userId });
@@ -68,8 +73,10 @@ module.exports = {
     }
   },
 
+  // Add a new friend to a user's friend list
   async addFriend(req, res) {
     try {
+      // Adding the friend to the user's friend list
       const user = await User.findByIdAndUpdate(
         { _id: req.params.userId },
         { $addToSet: { friends: req.params.friendId } },
@@ -78,7 +85,7 @@ module.exports = {
       if (!user) {
         return res.status(404).json({ message: 'No user found with that id!' });
       }
-      //adding the user as a friend to the friend
+      // Adding the user as a friend to the friend's list
       const friend = await User.findByIdAndUpdate(
         { _id: req.params.friendId },
         { $addToSet: { friends: req.params.userId } },
@@ -93,11 +100,12 @@ module.exports = {
     }
   },
 
-  // Remove Friend
+  // Remove a friend from a user's friend list
   async deleteFriend(req, res) {
     try {
+      // Removing the friend from the user's friend list
       const user = await User.findByIdAndUpdate(
-        { _id: req.params.friendId },
+        { _id: req.params.userId },
         { $pull: { friends: req.params.friendId } },
         { new: true, runValidators: true },
       );
@@ -106,7 +114,7 @@ module.exports = {
         return res.status(404).json({ message: 'No user found with that ID' });
       }
 
-      // Optionally, you might want to remove the userId from the friend's friends array as well
+      // Optionally, removing the userId from the friend's friends list as well
       await User.findByIdAndUpdate(
         { _id: req.params.friendId },
         { $pull: { friends: req.params.userId } },
