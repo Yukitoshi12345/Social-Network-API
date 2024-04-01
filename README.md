@@ -79,6 +79,22 @@ npm run start;
 
 ## Screenshot
 
+<b>Run Seed in Terminal:</b>
+
+![](/assets/images/seed.png)
+
+<br>
+
+<b>Thoughts Seed in MongoDB:</b>
+
+![](/assets/images/thoughtsSeed.png)
+
+<br>
+
+<b>Users Seed in MongoDB:</b>
+
+![](/assets/images/usersSeed.png)
+
 ## Videos
 
 ## Output
