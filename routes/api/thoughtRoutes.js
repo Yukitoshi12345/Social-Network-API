@@ -30,7 +30,8 @@ router
 // Define a route for managing reactions to a specific thought identified by thoughtId.
 // POST request to this route invokes addReaction to add a reaction to the thought.
 // DELETE request to this route invokes deleteReaction to remove a reaction from the thought.
-router.route('/:thoughtId/reactions').post(addReaction).delete(deleteReaction);
+router.route('/:thoughtId/reactions').post(addReaction);
+router.route('/:thoughtId/reactions/:reactionId').delete(deleteReaction);
 
 // Export the router so it can be integrated with the main application, allowing these routes to be accessible.
 module.exports = router;

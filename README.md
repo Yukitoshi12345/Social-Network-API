@@ -45,8 +45,8 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 - JavaScript
 - Node.js
 - MongoDB
-- Express (version 8.2.4)
-- Mongoose (version 3.9.1)
+- Express (version 4.19.2)
+- Mongoose (version 8.2.4)
 
 ## Installation Instruction
 

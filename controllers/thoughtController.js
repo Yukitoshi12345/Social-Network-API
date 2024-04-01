@@ -30,8 +30,8 @@ module.exports = {
   async createThought(req, res) {
     try {
       const thought = await Thought.create(req.body);
-      const user = await User.findByIdAndUpdate(
-        { _id: req.body.userId },
+      const user = await User.findOneAndUpdate(
+        { username: req.body.username },
         { $push: { thoughts: thought._id } },
         { runValidators: true, new: true },
       );
@@ -76,8 +76,8 @@ module.exports = {
       }
 
       // Remove the thought reference from the user's thoughts array
-      await User.findByIdAndUpdate(
-        { _id: thought.userId }, // Assuming the thought model has a userId field linking it to the user
+      await User.findOneAndUpdate(
+        { username: thought.username }, // Assuming the thought model has a userId field linking it to the user
         { $pull: { thoughts: req.params.thoughtId } },
         { new: true, runValidators: true },
       );

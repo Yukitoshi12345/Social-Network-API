@@ -26,7 +26,7 @@ module.exports = {
 
       res.json(user);
     } catch (err) {
-      res.status(500).json(err);
+      res.status(500).json(err.message);
     }
   },
 
@@ -69,7 +69,7 @@ module.exports = {
         return res.status(404).json({ message: 'No user found with that id!' });
       }
 
-      await Thought.deleteMany({ _id: { $in: user.thoughts } });
+      await Thought.deleteMany({ _id: { $in: user.thoughts._id } });
       res.json({ message: 'User and thoughts deleted!' });
     } catch (err) {
       res.status(500).json(err);
