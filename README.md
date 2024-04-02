@@ -65,9 +65,7 @@ To use this project:
 npm install
 ```
 
-- Install `Mongoose`
-
-- Type in the following:
+- Next, type in the following to run the project:
 
 ```
 npm run seed;
@@ -95,7 +93,33 @@ npm run start;
 
 ![](/assets/images/usersSeed.png)
 
+<br>
+
 ## Videos
+
+<b> These are the commands you need to run to start the server: </b>
+
+![]()
+
+<br>
+
+<b> User and Friends on Insomnia: </b>
+
+![]()
+
+<br>
+
+<b> Thoughts and Reactions on Insomnia: </b>
+
+![]()
+
+<br>
+
+<b> Deletes a user by their ID and also deletes all thoughts associated with that user on Insomnia: </b>
+
+![]()
+
+<br>
 
 ## Output
 
