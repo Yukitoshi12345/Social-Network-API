@@ -1,4 +1,4 @@
-![Badge](https://img.shields.io/badge/License-MIT-yellow.svg) ![JavaScript](https://img.shields.io/badge/JavaScript-yellow) ![Node.js](https://img.shields.io/badge/Node.js-blue)
+![Badge](https://img.shields.io/badge/License-MIT-yellow.svg) ![JavaScript](https://img.shields.io/badge/JavaScript-yellow) ![Node.js](https://img.shields.io/badge/Node.js-blue) ![Express.js@4.19.2](https://img.shields.io/badge/Express.js@4.19.2-pink) ![MongoDB](https://img.shields.io/badge/MongoDB-red) ![Mongoose@8.2.4](https://img.shields.io/badge/Mongoose@8.2.4-purple) ![Moment@2.30.1](https://img.shields.io/badge/Moment@2.30.1-green)
 
 <h1 align = "center"> Social Network API </h1>
 
@@ -45,6 +45,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 - JavaScript
 - Node.js
 - MongoDB
+- Moment (version 2.30.1)
 - Express (version 4.19.2)
 - Mongoose (version 8.2.4)
 
