@@ -65,14 +65,16 @@ To use this project:
 npm install
 ```
 
-- Next, type in the following to run the project:
+- Type in the following to run the database:
 
 ```
-npm run seed;
+npm run seed
 ```
 
+- Type in the following to run the project:
+
 ```
-npm run start;
+npm run start
 ```
 
 ## Screenshot

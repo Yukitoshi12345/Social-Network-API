@@ -1,6 +1,8 @@
 // Importing necessary modules from mongoose
 const { Schema, model } = require('mongoose');
 
+const moment = require('moment');
+
 // Defining the Reaction schema, used for embedding in the Thought schema
 const reactionSchema = new Schema(
   {
@@ -24,7 +26,10 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (createdAtValue) => createdAtValue.toISOString(), // Note: Consider reviewing this to ensure the desired format is applied universally
+      get: (date) => {
+        const formattedDate = moment(date).format('MMMM Do YYYY, h:mm a');
+        return formattedDate;
+      }, // Note: Consider reviewing this to ensure the desired format is applied universally
     },
   },
   {
@@ -51,7 +56,11 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (createdAtValue) => createdAtValue.toISOString(), // Note: Same consideration for date formatting as in reactionSchema
+      get: (date) => {
+        const formattedDate = moment(date).format('MMMM Do YYYY, h:mm a');
+        return formattedDate;
+      },
+      // Note: Same consideration for date formatting as in reactionSchema
     },
     // Username of the user who posted the thought
     username: {
