@@ -112,19 +112,19 @@ A walk through video is [here](https://youtu.be/jmQXPR_38Aw).
 
 <b> User and Friends on Insomnia: </b>
 
-![]()
+![](/assets/videos/UserFriends.gif)
 
 <br>
 
 <b> Thoughts and Reactions on Insomnia: </b>
 
-![]()
+![](/assets/videos/ThoughtsReaction.gif)
 
 <br>
 
 <b> Deletes a user by their ID and also deletes all thoughts associated with that user on Insomnia: </b>
 
-![]()
+![](/assets/videos/DeleteUserThoughts.gif)
 
 <br>
 
