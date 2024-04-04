@@ -100,6 +100,10 @@ npm run start
 
 ## Videos
 
+A walk through video is [here](https://youtu.be/Y2lpGvS-r_c).
+
+<br>
+
 <b> These are the commands you need to run to start the server: </b>
 
 ![]()
