@@ -130,6 +130,44 @@ A walk through video is [here](https://youtu.be/jmQXPR_38Aw).
 
 ## Output
 
+<b>User Model</b>
+
+- Attributes: The User model includes username, email, thoughts, and friends. Each user has a unique and required username and email, with the email field validated to match a valid email address pattern. The thoughts and friends fields store arrays of references to Thought models and User models, respectively, enabling relational data management.
+- Virtuals: A virtual field friendCount dynamically calculates the number of friends a user has by returning the length of the friends array. This approach optimises data storage and retrieval efficiency, avoiding the need to store a separate count field.
+
+<br>
+
+<b>Thought Model</b>
+
+- Attributes: The Thought model includes thoughtText, createdAt, username, and reactions. thoughtText must be between 1 and 280 characters. The createdAt field automatically records the time a thought was created, with a getter method to format this timestamp upon query. The username indicates who created the thought. The reactions array stores nested Reaction subdocuments.
+- Virtuals: A virtual field reactionCount calculates the number of reactions to a thought, enhancing data interaction without additional storage.
+
+<br>
+
+<b>Reaction Schema</b>
+
+- Defined as a subdocument schema within the Thought model, it includes fields such as reactionId, reactionBody, username, and createdAt, with the reactionId automatically generated. This setup allows for efficient storage and retrieval of reactions as part of the thoughts they relate to.
+
+<br>
+
+<b>API Routes</b>
+
+- API routes facilitate the creation, retrieval, updating, and deletion of users, thoughts, and reactions, adhering to RESTful principles.
+- /api/users routes support operations on users, including listing all users, fetching a single user by ID (with populated thoughts and friends data), creating, updating, and deleting users. Deleting a user also removes their associated thoughts.
+- /api/users/:userId/friends/:friendId routes enable adding or removing friends from a user's friend list, showcasing the application's social networking capabilities.
+- /api/thoughts routes handle thought operations similar to user routes, with additional support for creating thoughts that are automatically linked to the user who created them.
+- /api/thoughts/:thoughtId/reactions routes provide for adding reactions to thoughts and deleting them, further enhancing the interactive aspect of your social network.
+
+<br>
+
+<b>Operational Flow</b>
+
+- When the application is invoked, your server starts, and the defined Mongoose models are synchronised with the MongoDB database, ensuring that your API is ready to handle requests. Testing the API through tools like Insomnia demonstrates the functionality of your routes, allowing for the creation, retrieval, updating, and deletion of users, thoughts, and reactions. This confirms the API’s readiness to support a social networking application's frontend development, focusing on user interactions and data management.
+
+<br>
+
+The implementation forms the backbone of a social network, efficiently managing data relationships and interactions through well-defined models and API routes. This setup not only adheres to best practices in API development but also ensures scalability and maintainability of your application.
+
 ## Installation
 
 The project was uploaded to [GitHub](https://github.com/) at the following repository:
