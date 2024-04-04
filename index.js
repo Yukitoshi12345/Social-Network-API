@@ -4,6 +4,9 @@ const express = require('express');
 // Import the database configuration to establish a connection with MongoDB
 const db = require('./config/connection');
 
+// Import the custom cLog middleware from the middleware/clog.js file
+const { clog } = require('./middleware/clog');
+
 // Import routes to be used by the Express application
 const routes = require('./routes');
 
@@ -15,6 +18,10 @@ const PORT = process.env.PORT || 3001;
 
 // Initialise the Express application
 const app = express();
+
+// Import custom middleware, "clog"
+// Apply the custom clog middleware to log request details
+app.use(clog);
 
 // Determine the specific activity or part of the project the server is running for, based on the CWD.
 // This is useful for debugging or when running multiple servers for different parts of a larger project.
