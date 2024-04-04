@@ -100,7 +100,7 @@ npm run start
 
 ## Videos
 
-A walk through video is [here](https://youtu.be/Y2lpGvS-r_c).
+A walk through video is [here](https://youtu.be/jmQXPR_38Aw).
 
 <br>
 
