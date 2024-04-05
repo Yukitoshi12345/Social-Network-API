@@ -106,7 +106,7 @@ A walk through video is [here](https://youtu.be/jmQXPR_38Aw).
 
 <b> These are the commands you need to run to start the server: </b>
 
-![]()
+![](/assets/videos/StartingServer.gif)
 
 <br>
 
