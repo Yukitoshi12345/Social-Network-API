@@ -16,6 +16,7 @@ The envisioned social network API is designed to be robust and user-friendly, en
 - [Videos](#videos)
 - [Output](#output)
 - [Installation](#installation)
+- [Central Grader Comments](#central-grader-comments)
 - [License](#license)
 
 ## User Story
@@ -172,6 +173,24 @@ The implementation forms the backbone of a social network, efficiently managing 
 
 The project was uploaded to [GitHub](https://github.com/) at the following repository:
 [https://github.com/yukitoshi12345/Social-Network-API/](https://github.com/yukitoshi12345/Social-Network-API)
+
+## Central Grader Comments
+
+Grade: 100/100
+
+Hello Yukitoshi,
+
+Warmest congratulations on delivering an exceptional homework assignment! Your adeptness in crafting a comprehensive backend application utilizing Mongo, Express, and Node—and your meticulous testing of all routes with Insomnia—truly stands out.
+
+I'm thoroughly impressed with the elegance and structure of your coding. You've made it effortless for anyone to navigate through your file system, gaining an immediate understanding of its workings. Your API's routing, the clarity in constructing your schemas, and the efficiency in handling client requests in your controllers are exemplary. The way you've configured your database with mongoose, detailed your models and schemas, and innovatively integrated 'reactions' as a subdocument in your Thought model is commendable.
+
+Your video presentation was equally outstanding, showcasing the initiation of your server, the accessibility of routes for all users and thoughts, as well as the functionalities for creating, updating, and deleting data for thoughts and users—all verified through rigorous Insomnia testing!
+
+Your cohesive and clean presentation of the codebase left me incredibly impressed. From the uniqueness of your repository name to your adherence to best file structure and naming conventions, and not to mention, your attention to proper coding standards like indentation, meaningful comments, and the structured arrangement of your work. Your descriptive commits and the comprehensive README file in your repository speak volumes of your diligence. Furthermore, your video was nothing short of amazing.
+
+In sum, the proficiency and essential skills you've showcased in this assignment are pivotal for developing RESTful API architectures. These are indispensable for both backend and full-stack developers. Your capabilities in server configuration, route definition, and request-response handling form the cornerstone of scalable and effective application development. Through appropriate data modeling and database utilization, you demonstrate an acute understanding of backend data design and management. Moreover, your adeptness in API endpoint testing underscores the reliability and functionality of applications. Such skills are highly valued in the software engineering realm, as they contribute to the creation of robust, secure, and maintainable systems. Continuing to hone and broaden these skills will certainly pave your way to becoming an accomplished backend developer and a sought-after talent in full-stack development. Keep up the fantastic work!
+
+- T.G.A. Centralized Grading.
 
 ## License
 
