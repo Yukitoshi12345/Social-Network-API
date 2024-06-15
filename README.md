@@ -11,6 +11,7 @@ The envisioned social network API is designed to be robust and user-friendly, en
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
 - [Technologies Used](#technologies-used)
+- [Installation Instruction](#installation-instruction)
 - [Test Instruction](#test-instruction)
 - [Screenshot](#screenshot)
 - [Videos](#videos)
